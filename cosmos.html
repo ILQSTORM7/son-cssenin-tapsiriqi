@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Kosmik Sistem</title>
+
+<style>
+/* ===== ÜMUMİ ===== */
+body{
+  margin:0;
+  overflow:hidden;
+  background:black;
+  font-family:Arial;
+  color:white;
+}
+
+/* Ulduzlu fon */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:url("https://i.imgur.com/9aQG8YF.png");
+  animation:stars 200s linear infinite;
+}
+@keyframes stars{
+  from{transform:translate(0,0);}
+  to{transform:translate(-1000px,500px);}
+}
+
+/* BUTTON */
+button{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:15px 35px;
+  font-size:18px;
+  background:#00eaff;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 0 20px #00eaff;
+}
+
+/* ROCKET */
+#rocket{
+  position:absolute;
+  bottom:-120px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:80px;
+  transition:bottom 3s ease-in;
+}
+
+/* PLANETLƏR */
+.planet{
+  position:absolute;
+  border-radius:50%;
+  box-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+.mercury{width:20px;height:20px;background:#aaa;top:15%;left:10%;}
+.venus{width:35px;height:35px;background:#d4af37;top:45%;left:18%;}
+.earth{width:40px;height:40px;background:#1e90ff;top:30%;left:30%;}
+.mars{width:35px;height:35px;background:#ff4500;top:60%;left:42%;}
+.jupiter{width:90px;height:90px;background:#c2b280;top:25%;left:55%;}
+.saturn{width:80px;height:80px;background:#deb887;top:55%;left:65%;}
+.uranus{width:55px;height:55px;background:#7fffd4;top:18%;left:75%;}
+.neptune{width:55px;height:55px;background:#4169e1;top:50%;left:85%;}
+
+/* ===== METEORİT CSS ===== */
+#meteor{
+  position:absolute;
+  top:-100px;
+  left:15%;
+  font-size:60px;
+  animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+  0%{top:-100px; left:10%; transform:rotate(0deg);}
+  80%{top:80%; left:50%; transform:rotate(720deg);}
+  100%{top:90%; left:55%; opacity:0;}
+}
+
+/* PARTLAYIŞ */
+.explosion{
+  position:absolute;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:radial-gradient(circle, yellow, orange, red);
+  animation:boom 0.6s ease-out forwards;
+}
+
+@keyframes boom{
+  from{transform:scale(0); opacity:1;}
+  to{transform:scale(2.5); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== PLANETLƏR ===== -->
+<div class="planet mercury"></div>
+<div class="planet venus"></div>
+<div class="planet earth"></div>
+<div class="planet mars"></div>
+<div class="planet jupiter"></div>
+<div class="planet saturn"></div>
+<div class="planet uranus"></div>
+<div class="planet neptune"></div>
+
+<!-- ===== ROCKET ===== -->
+<div id="rocket">🚀</div>
+
+<!-- ===== METEOR ===== -->
+<div id="meteor">☄️</div>
+
+<button onclick="launchRocket()">ROCKET UÇUR 🚀</button>
+
+<script>
+/* ===== ROCKET JAVASCRIPT ===== */
+function launchRocket(){
+  document.getElementById("rocket").style.bottom = "110%";
+}
+
+/* =====================================================
+   ===== METEORİT JAVASCRIPT (AYRI KOD) =====
+   Bu hissə yalnız meteor + partlayış üçündür
+===================================================== */
+const meteor = document.getElementById("meteor");
+
+meteor.addEventListener("animationiteration", () => {
+  const explosion = document.createElement("div");
+  explosion.className = "explosion";
+  explosion.style.left = meteor.offsetLeft + "px";
+  explosion.style.top = "90%";
+  document.body.appendChild(explosion);
+
+  setTimeout(() => explosion.remove(), 600);
+});
+</script>
+
+</body>
+</html>

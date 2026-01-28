@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Kosmonavt Kitabxanası</title>
+
+<style>
+@keyframes stars {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+body{
+  margin:0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color:#fff;
+  background:
+    url("https://i.imgur.com/9aQG8YF.png"),
+    radial-gradient(circle at top,#0b1d3a,#020412);
+  background-size:cover;
+  animation:stars 200s linear infinite;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:40px 20px;
+  background:rgba(0,0,0,0.6);
+  border-bottom:2px solid #00eaff;
+}
+
+header h1{
+  font-size:36px;
+  color:#00eaff;
+  text-shadow:0 0 15px #00eaff;
+  letter-spacing:3px;
+}
+
+header p{
+  color:#cfefff;
+  margin-top:10px;
+}
+
+/* LIBRARY */
+.library{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  padding:40px;
+}
+
+/* CARD */
+.card{
+  background:rgba(10,20,50,0.85);
+  border-radius:20px;
+  padding:25px;
+  border:1px solid rgba(0,234,255,0.3);
+  box-shadow:0 0 25px rgba(0,234,255,0.15);
+  transition:0.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"👨‍🚀";
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  font-size:70px;
+  opacity:0.05;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 0 40px rgba(0,234,255,0.6);
+}
+
+/* TEXT */
+.card h2{
+  margin:0;
+  color:#00eaff;
+  text-shadow:0 0 10px #00eaff;
+}
+
+.card .year{
+  font-size:13px;
+  color:#aaa;
+  margin-top:5px;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.7;
+  margin-top:12px;
+  color:#e6f7ff;
+}
+
+.details{
+  margin-top:15px;
+  font-size:13px;
+  color:#b8e9ff;
+}
+
+.details b{
+  color:#00eaff;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:rgba(0,0,0,0.6);
+  border-top:1px solid #00eaff;
+  font-size:13px;
+  color:#8bdfff;
+
+}
+
+/* ULDZULU FON */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:url("https://i.imgur.com/9aQG8YF.png");
+  animation:stars 200s linear infinite;
+}
+@keyframes stars{
+  from{transform:translate(0,0);}
+  to{transform:translate(-1000px,500px);}
+}
+
+/* BUTTON */
+button{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:15px 30px;
+  font-size:18px;
+  background:#00eaff;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 0 20px #00eaff;
+}
+
+/* ROCKET */
+#rocket{
+  position:absolute;
+  bottom:-120px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:80px;
+  transition:bottom 3s ease-in;
+}
+
+/* PLANETLƏR */
+.planet{
+  position:absolute;
+  border-radius:50%;
+  box-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+/* PLANET ÖLÇÜ + RƏNG */
+.mercury{width:20px;height:20px;background:#aaa;top:20%;left:10%;}
+.venus{width:35px;height:35px;background:#d4af37;top:50%;left:18%;}
+.earth{width:40px;height:40px;background:#1e90ff;top:30%;left:30%;}
+.mars{width:30px;height:30px;background:#ff4500;top:60%;left:40%;}
+.jupiter{width:90px;height:90px;background:#c2b280;top:25%;left:55%;}
+.saturn{width:80px;height:80px;background:#deb887;top:55%;left:65%;}
+.uranus{width:55px;height:55px;background:#7fffd4;top:20%;left:75%;}
+.neptune{width:55px;height:55px;background:#4169e1;top:50%;left:85%;}
+
+
+/* METEOR */
+#meteor{
+  position:absolute;
+  top:-100px;
+  left:10%;
+  font-size:60px;
+  animation:fall 4s linear infinite;
+}
+
+/* METEOR DÜŞMƏ */
+@keyframes fall{
+  0%{
+    top:-100px;
+    left:10%;
+    transform:rotate(0deg);
+    opacity:1;
+  }
+  80%{
+    top:80%;
+    left:50%;
+    transform:rotate(720deg);
+    opacity:1;
+  }
+  100%{
+    top:90%;
+    left:55%;
+    opacity:0;
+  }
+}
+
+/* PARTLAYIŞ */
+.explosion{
+  position:absolute;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:radial-gradient(circle, yellow, orange, red);
+  animation:boom 0.6s ease-out forwards;
+}
+
+@keyframes boom{
+  from{
+    transform:scale(0);
+    opacity:1;
+  }
+  to{
+    transform:scale(2.5);
+    opacity:0;
+  }
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚀 KOSMONAVTLAR KİTABXANASI</h1>
+  <p>İnsanlığı ulduzlara aparan qəhrəmanlar</p>
+  </header>
+
+<section class="library">
+    
+<div class="card">
+    <h2>Yuri Qaqarin</h2>
+    <div class="year">1934 – 1968 | Yaş: 34</div>
+    <p>
+    Tarixdə kosmosa uçan ilk insan. “Vostok-1” ilə Yer orbitinə çıxaraq
+    kosmonavtika dövrünü başlatdı.
+    </p>
+  <div class="details">
+    <b>Böyük işi:</b> İlk kosmos uçuşu<br>
+    <b>Nə yaratdı:</b> İnsanlı kosmos yolunu<br>
+    <b>Çətinlik:</b> Təhlükəli texnologiya, yüksək risk
+  </div>
+  </div>
+
+<div class="card">
+    <h2>Neil Armstrong</h2>
+  <div class="year">1930 – 2012 | Yaş: 82</div>
+  <p>
+    Ay səthində yeriyən ilk insan. “Apollo 11” missiyası ilə tarix yazdı.
+    </p>
+    <div class="details">
+        <b>Böyük işi:</b> Aya ilk eniş<br>
+    <b>Düzəltdiyi:</b> Ay eniş proseduru<br>
+    <b>Çətinlik:</b> Yanacaq çatışmazlığı
+    </div>
+    </div>
+    
+    <div class="card">
+  <h2>Valentina Tereşkova</h2>
+  <div class="year">1937 | Yaş: 87</div>
+  <p>
+    Kosmosa uçan ilk qadın. Təkbaşına orbitdə qalaraq
+    qadınların kosmosda yerini sübut etdi.
+    </p>
+    <div class="details">
+        <b>Böyük işi:</b> İlk qadın kosmonavt<br>
+        <b>Töhfə:</b> Tarixi bərabərlik<br>
+        <b>Çətinlik:</b> Fiziki və psixoloji təzyiq
+        </div>
+        </div>
+        
+        <div class="card">
+            <h2>Chris Hadfield</h2>
+            <div class="year">1959 | Yaş: 65</div>
+  <p>
+    ISS komandiri. Açıq kosmosda təmir işləri və texniki
+    bacarığı ilə tanınır.
+  </p>
+  <div class="details">
+    <b>Böyük işi:</b> ISS rəhbərliyi<br>
+    <b>Düzəltdiyi:</b> Günəş panelləri<br>
+    <b>Çətinlik:</b> Açıq kosmos riski
+  </div>
+</div>
+
+</section>
+
+<footer>
+    🌌 © 2026 COSMONAFT HISTORY — Ulduzlara doğru
+    </footer>
+    <!-- PLANETLƏR -->
+    <div class="planet mercury"></div>
+    <div class="planet venus"></div>
+    <div class="planet earth"></div>
+    <div class="planet mars"></div>
+    <div class="planet jupiter"></div>
+    <div class="planet saturn"></div>
+    <div class="planet uranus"></div>
+    <div class="planet neptune"></div>
+    
+    <!-- ROCKET -->
+    <div id="rocket">🚀</div>
+    
+    <!-- BUTTON -->
+    <button onclick="launch()">ROCKET UÇUR 🚀</button>
+    
+    <script>
+        function launch(){
+  document.getElementById("rocket").style.bottom = "110%";
+}
+</script>
+
+
+
+</script>
+
+
+
+<div id="meteor">☄️</div>
+
+<script>
+const meteor = document.getElementById("meteor");
+
+meteor.addEventListener("animationiteration", () => {
+  const explosion = document.createElement("div");
+  explosion.className = "explosion";
+  explosion.style.left = meteor.offsetLeft + "px";
+  explosion.style.top = "90%";
+  document.body.appendChild(explosion);
+
+  setTimeout(() => {
+    explosion.remove();
+  }, 600);
+});
+</script>
+
+</body>
+</html>
