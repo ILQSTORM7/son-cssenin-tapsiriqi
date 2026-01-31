@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Kosmos Avtomobil & Cosmonavtlar</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:black;
+  overflow:hidden;
+  font-family:Arial, sans-serif;
+  color:white;
+}
+
+/* ULDUZLAR */
+.star{
+  position:absolute;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0.5;}
+  50%{opacity:1;}
+}
+
+/* ARABA (KOSMOSDA) */
+#car{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:60px;
+  transition:bottom 5s ease-in-out;
+  cursor:pointer;
+}
+
+/* COSMONAFT KARTLARI */
+.card{
+  position:absolute;
+  background:rgba(0,0,0,0.8);
+  border:2px solid #00eaff;
+  border-radius:10px;
+  padding:10px 15px;
+  width:220px;
+  color:white;
+  box-shadow:0 0 10px #00eaff;
+  transition:transform 0.3s;
+}
+.card:hover{
+  transform:scale(1.1);
+}
+</style>
+</head>
+<body>
+
+<!-- ULDUZLAR -->
+<div id="stars"></div>
+
+<!-- KOSMOS ARABA -->
+<div id="car">🚗</div>
+
+<script>
+/* ===== ULDUZLAR ===== */
+const starsContainer = document.getElementById('stars');
+for(let i=0;i<100;i++){
+  const star = document.createElement('div');
+  star.className='star';
+  star.style.width=star.style.height=Math.random()*3+1+'px';
+  star.style.top=Math.random()*100+'%';
+  star.style.left=Math.random()*100+'%';
+  star.style.animation='twinkle '+(Math.random()*3+2)+'s infinite';
+  starsContainer.appendChild(star);
+}
+
+/* ===== COSMONAFT DATA ===== */
+const cosmonauts = [
+  {name:"Yuri Gagarin",year:1961,age:34,info:"Birinçi kosmonaft, Soyuz missiyası"},
+  {name:"Valentina Tereshkova",year:1963,age:26,info:"Birinçi qadın kosmonaft"},
+  {name:"Neil Armstrong",year:1969,age:38,info:"Aya ilk ayaq basan insan"},
+  {name:"Buzz Aldrin",year:1969,age:39,info:"Apollo 11 komandası, aya çıxdı"},
+  {name:"Chris Hadfield",year:2013,age:53,info:"Kanadalı kosmonaft, ISS komandiri"},
+  {name:"Svetlana Savitskaya",year:1982,age:36,info:"Birinçi qadın EVA missiyası"},
+  {name:"Valeri Polyakov",year:1988,age:41,info:"Ən uzun müddət kosmosda qalma"},
+  {name:"Peggy Whitson",year:2002,age:50,info:"NASA rekordları, 665 gün kosmosda"}
+];
+
+/* ===== ARABA DÜYMƏ FUNKSİYASI ===== */
+const car = document.getElementById('car');
+car.addEventListener('click', ()=>{
+  // Araba yuxarı qalxır
+  car.style.bottom='90%';
+
+  // Cosmonavt kartları çıxır
+  cosmonauts.forEach((cosmo)=>{
+    const card = document.createElement('div');
+    card.className='card';
+    card.style.top = Math.random()*50+'%';
+    card.style.left = Math.random()*70+'%';
+    card.innerHTML = `<h4>${cosmo.name}</h4>
+                      <p>İl: ${cosmo.year}</p>
+                      <p>Yaş: ${cosmo.age}</p>
+                      <p>${cosmo.info}</p>`;
+    document.body.appendChild(card);
+  });
+});
+</script>
+
+</body>
+</html>
